@@ -1,0 +1,232 @@
+/* Ustawienia globalne */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Nunito', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #fff0f5;
+    color: #333;
+    overflow-x: hidden;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, #ffb3c1, #ff6b81);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    transition: transform 0.3s ease;
+}
+
+.logo a:hover {
+    transform: scale(1.1);
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #fff;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.nav-links a:hover {
+    background-color: #fff;
+    color: #ff6b81;
+    box-shadow: 0 4px 10px rgba(255, 107, 129, 0.3);
+    transform: translateY(-3px);
+}
+
+/* Hero section */
+.hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle at center, #ffe4e6, #ffc3ca);
+    overflow: hidden;
+    padding: 0 1rem;
+    text-align: center;
+}
+
+.hero h1 {
+    color: #ff6b81;
+    font-size: 3.5rem;
+    text-align: center;
+    font-weight: 800;
+    text-shadow: 2px 2px 10px rgba(255, 107, 129, 0.5);
+    letter-spacing: 2px;
+    animation: pulse 3s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+/* Animacja serc */
+.hearts-animation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.heart {
+    position: absolute;
+    color: rgba(255, 107, 129, 0.6);
+    font-size: 50px;
+    animation: float 7s infinite ease-in-out;
+    opacity: 0.6;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(-300px) scale(1.5);
+        opacity: 0;
+    }
+}
+
+.heart:nth-child(1) { left: 10%; top: 40%; font-size: 40px; animation-duration: 6s; }
+.heart:nth-child(2) { left: 50%; top: 10%; font-size: 60px; animation-duration: 8s; }
+.heart:nth-child(3) { left: 80%; top: 30%; font-size: 30px; animation-duration: 5s; }
+.heart:nth-child(4) { left: 20%; top: 70%; font-size: 50px; animation-duration: 9s; }
+
+/* Galeria */
+.gallery {
+    padding: 4rem 2rem;
+    background-color: #fff0f5;
+    text-align: center;
+}
+
+.gallery h2 {
+    font-size: 2.5rem;
+    color: #ff6b81;
+    font-weight: 700;
+    margin-bottom: 2rem;
+}
+
+.gallery-grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+/* Responsywność */
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background-color: rgba(255, 179, 193, 0.9);
+        width: 200px;
+        padding: 1rem;
+        display: none;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        padding: 1rem;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+        line-height: 1.2;
+    }
+
+    .gallery h2 {
+        font-size: 2rem;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .nav-links a {
+        font-size: 1rem;
+        padding: 0.3rem 0.8rem;
+    }
+}
